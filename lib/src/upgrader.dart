@@ -39,13 +39,13 @@ class Upgrader {
   AppcastConfiguration appcastConfig;
 
   /// The ignore button title, which defaults to ```Ignore```
-  String buttonTitleIgnore = 'Ignore'.toUpperCase();
+  Widget buttonTitleIgnore = Text('Ignore'.toUpperCase());
 
   /// The later button title, which defaults to ```Later```
-  String buttonTitleLater = 'Later'.toUpperCase();
+  Widget buttonTitleLater = Text('Later'.toUpperCase());
 
   /// The update button title, which defaults to ```Update Now```
-  String buttonTitleUpdate = 'Update Now'.toUpperCase();
+  Widget buttonTitleUpdate = Text('Update Now'.toUpperCase());
 
   /// Provide an HTTP Client that can be replaced for mock testing.
   http.Client client = http.Client();
@@ -321,13 +321,13 @@ class Upgrader {
           ),
           actions: <Widget>[
             FlatButton(
-                child: Text(buttonTitleIgnore),
+                child: buttonTitleIgnore,
                 onPressed: () => onUserIgnored(context, true)),
             FlatButton(
-                child: Text(buttonTitleLater),
+                child: buttonTitleLater,
                 onPressed: () => onUserLater(context, true)),
             FlatButton(
-                child: Text(buttonTitleUpdate),
+                child: buttonTitleUpdate,
                 onPressed: () => onUserUpdated(context, true)),
           ],
         );
