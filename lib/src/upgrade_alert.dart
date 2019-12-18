@@ -12,13 +12,13 @@ class _UpgradeBase extends StatefulWidget {
   final AppcastConfiguration appcastConfig;
 
   /// The ignore button title, which defaults to ```Ignore```
-  final String buttonTitleIgnore;
+  final Widget buttonTitleIgnore;
 
   /// The later button title, which defaults to ```Later```
-  final String buttonTitleLater;
+  final Widget buttonTitleLater;
 
   /// The update button title, which defaults to ```Update Now```
-  final String buttonTitleUpdate;
+  final Widget buttonTitleUpdate;
 
   /// Days until alerting user again after later.
   final int daysToAlertAgain;
@@ -149,9 +149,9 @@ class UpgradeCard extends _UpgradeBase {
     this.margin = const EdgeInsets.all(4.0),
     Key key,
     AppcastConfiguration appcastConfig,
-    String buttonTitleIgnore,
-    String buttonTitleLater,
-    String buttonTitleUpdate,
+    Widget<Text> buttonTitleIgnore,
+    Widget<Text> buttonTitleLater,
+    Widget<Text> buttonTitleUpdate,
     int daysToAlertAgain,
     bool debugAlwaysUpgrade,
     bool debugDisplayOnce,
@@ -209,7 +209,7 @@ class UpgradeCard extends _UpgradeBase {
                       ),
                       actions: <Widget>[
                         FlatButton(
-                            child: Text(Upgrader().buttonTitleIgnore),
+                            child: Upgrader().buttonTitleIgnore,
                             onPressed: () {
                               // Save the date/time as the last time alerted.
                               Upgrader().saveLastAlerted();
@@ -218,7 +218,7 @@ class UpgradeCard extends _UpgradeBase {
                               state.forceUpdateState();
                             }),
                         FlatButton(
-                            child: Text(Upgrader().buttonTitleLater),
+                            child: Upgrader().buttonTitleLater,
                             onPressed: () {
                               // Save the date/time as the last time alerted.
                               Upgrader().saveLastAlerted();
@@ -227,7 +227,7 @@ class UpgradeCard extends _UpgradeBase {
                               state.forceUpdateState();
                             }),
                         FlatButton(
-                            child: Text(Upgrader().buttonTitleUpdate),
+                            child: Upgrader().buttonTitleUpdate,
                             onPressed: () {
                               // Save the date/time as the last time alerted.
                               Upgrader().saveLastAlerted();
@@ -251,9 +251,9 @@ class UpgradeAlert extends _UpgradeBase {
   UpgradeAlert({
     Key key,
     AppcastConfiguration appcastConfig,
-    String buttonTitleIgnore,
-    String buttonTitleLater,
-    String buttonTitleUpdate,
+    Widget<Text> buttonTitleIgnore,
+    Widget<Text> buttonTitleLater,
+    Widget<Text> buttonTitleUpdate,
     this.child,
     int daysToAlertAgain,
     bool debugAlwaysUpgrade,
